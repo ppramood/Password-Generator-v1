@@ -1,6 +1,6 @@
 import random 
 import tkinter as tk
-from tkinter import BOTH, END, LEFT
+from tkinter import BOTH, END, LEFT ,messagebox
 
 # ---------- Fuction Area ---------#
 def call_fuc():
@@ -46,6 +46,11 @@ button = tk.Button(gui,text="Generate",bg="black",fg="red")
 button.config(command=call_fuc())
 button.pack()
 
+labelfont = ('times', 10, 'bold')
+length=tk.Label(gui,width=20,height=1,text ="Enter length if needed")
+length.config(font=labelfont)
+length.pack()
+
 pass_len=tk.Entry(gui)
 pass_len.pack()
 
@@ -54,9 +59,13 @@ output_box.insert(END,"Your Password Generated Here ")
 output_box.pack()
 
 button1 = tk.Button(gui,text="info")
-button1.config(bg="black",fg="red",font=1,height=1,width=3)
+button1.config(bg="black",fg="red",font=1,height=1,width=3,command=lambda: messagebox.showinfo('info', 'Created By Ppramood'))
 button1.config()
 button1.pack()
+
+img = tk.PhotoImage(file='1\password_gen\sk.png')
+gui.tk.call('wm', 'iconphoto', gui._w, img)
+
 gui.mainloop()
 #---------------End Of GUI------------------#
 
